@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE generatorConfiguration PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN" "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd" >
+<generatorConfiguration >
+<classPathEntry location="D:\repository\mysql\mysql-connector-java\5.1.21\mysql-connector-java-5.1.21.jar"/>
+  <context id="context1" targetRuntime="MyBatis3">
+  <plugin type="org.mybatis.generator.plugins.SerializablePlugin" />
+   	<commentGenerator>
+	    <property name="suppressAllComments" value="false"/>
+	</commentGenerator>
+    <jdbcConnection driverClass="com.mysql.jdbc.Driver" connectionURL="jdbc:mysql://localhost:3306/school?useUnicode=true&amp;characterEncoding=utf8" userId="root" password="123456" />
+    <javaModelGenerator targetPackage="com.ssm.domain" targetProject="SSM-WEB01/src/main/java" />
+    <sqlMapGenerator targetPackage="com.ssm.dao" targetProject="SSM-WEB01/src/main/resources" />
+    <javaClientGenerator targetPackage="com.ssm.dao" targetProject="SSM-WEB01/src/main/java" type="XMLMAPPER" />
+    <table schema="dict" tableName="dict" domainObjectName="Dict" alias="DT" enableCountByExample="false" enableDeleteByExample="false" enableUpdateByExample="false">
+      <property name="useActualColumnNames" value="true"/>
+      <generatedKey column="id" sqlStatement="Mysql" identity="true"/>
+      <columnOverride column="name" property="name" />
+      <columnOverride column="code" property="code"/>
+      <columnOverride column="parentCode" property="parentCode"/>
+      <columnOverride column="sort" property="sort"/>
+      <columnOverride column="createTime" property="createTime"/>
+    </table>
+
+  </context>
+</generatorConfiguration>

@@ -1,0 +1,54 @@
+<#assign s=JspTaglibs["/WEB-INF/struts-tags.tld"] />
+<#assign ctx="${request.contextPath}"/>
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<@s.form action="register" method="post">
+   <@s.textfield name="username" label="用户名"></@s.textfield>
+</@s.form>
+${ctx}
+<#assign hehe="和合">
+${name}
+${hehe}
+<#list ["我的god","b","c"] as a>
+	${a}
+</#list>
+<hr>
+字段名称：
+<@dict parentCode="SEASON" code="spring">${dictName}</@dict>
+<@dict parentCode="SEX" code="men">${dictName}</@dict>
+<@dict parentCode="SEX" code="women">${dictName}</@dict>
+<@dict parentCode="SEX" code="other">${dictName}</@dict>
+<hr>
+		<select name="id">
+		<option>--请选择--</option>
+<@dicts parentCode="SEASON">
+	<#list dictlist as dict>
+			<option value="${dict.id}">${dict.name}</option>
+	</#list>
+</@dicts>
+		</select>
+<hr>
+		<select name="id">
+		<option>--请选择--</option>
+<@dicts parentCode="SEX">
+	<#list dictlist as dict>
+			<option value="${dict.id}">${dict.name}</option>
+	</#list>
+</@dicts>
+		</select>
+		<hr>
+		<a href="${ctx}/admin">授权</a>
+	<hr>
+	<@shiro.guest>来宾</@shiro.guest>
+	<@shiro.hasRole name="admin">我是管理员</@shiro.hasRole>
+	<@shiro.hasRole name="user">我是普通员</@shiro.hasRole>
+	<hr>
+	<a href="${ctx}/logout">退出</a>
+</body>
+</html>

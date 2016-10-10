@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd     "
+       default-lazy-init="false" default-autowire="byName">
+<description>TAG</description>
+<bean id="dict" class="com.ssm.tag.DictTag"></bean>
+<bean id="dicts" class="com.ssm.tag.DictsTag"></bean>
+<bean id="freemarkerConfig" class="org.springframework.web.servlet.view.freemarker.FreeMarkerConfigurer">
+	<property name="freemarkerVariables">
+		<map>
+			<entry key="dict" value-ref="dict"/>
+			<entry key="dicts" value-ref="dicts"/>
+		</map>
+	</property>
+</bean>
+</beans>

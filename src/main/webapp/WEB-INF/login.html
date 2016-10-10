@@ -1,0 +1,18 @@
+<#assign s=JspTaglibs["/WEB-INF/struts-tags.tld"] />
+<#assign ctx="${request.contextPath}"/>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+欢迎<@shiro.user></@shiro.user>
+<h1>登录页面1<@shiro.guest>来宾</@shiro.guest></h1>
+<form action="${ctx}/tologin" method="post">
+	username:<input type="text" name="users.username"><br>
+	password:<input type="password" name="users.password"><br>
+	<input type="submit">
+</form>
+</body>
+</html>

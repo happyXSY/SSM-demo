@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+    <struts>
+    <package name="studentAction" namespace="/" extends="struts-default ">
+    	<action name="hello" class="com.ssm.action.StudentAction" method="helloSSM">
+    		<result name="success" type="freemarker">/WEB-INF/fmhello.html</result>
+    	</action>
+    	<action name="tologin" class="com.ssm.action.StudentAction" method="tologin">
+    		<result name="unsuccess"  type="freemarker">/WEB-INF/login.html</result>
+    		<result name="success" type="freemarker">/WEB-INF/fmhello.html</result>
+    	</action>
+    	<action name="login" class="com.ssm.action.StudentAction" method="login">
+    		<result name="success" type="freemarker">/WEB-INF/login.html</result>
+    	</action>
+    	<action name="admin" class="com.ssm.action.StudentAction" method="admin">
+    		<result name="success">/WEB-INF/method.jsp</result>
+    	</action>
+    	<action name="user" class="com.ssm.action.StudentAction" method="admin">
+    		<result name="success">/WEB-INF/method.jsp</result>
+    	</action>
+    	<action name="logout" class="com.ssm.action.StudentAction" method="logout">
+    		<result name="success" type="freemarker">/WEB-INF/login.html</result>
+    	</action>
+    </package>
+    <package name="studentjson" namespace="/" extends="json-default">
+    	<action name="json" class="com.ssm.action.StudentAction" method="student">
+    		<result name="json" type="json">
+    		</result>
+    	</action>
+    </package>
+    </struts>
